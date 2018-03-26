@@ -14,8 +14,8 @@ for result in soup.find_all('div', class_='result-item'):
     for name in result.find('span', {'class': 'name'}) :
         print(name)
         if name == 'Cedar' :
-            if not os.path.isfile('sent'):
-                print('Go get Romeo')
+            if not os.path.isfile('/tmp/sent'):
+                print('Go get Cedar')
                 sms_client.api.account.messages.create(
                     from_='+15034054242',
                     to=env.ANN_CELL,
@@ -26,4 +26,4 @@ for result in soup.find_all('div', class_='result-item'):
                     to=env.CHRIS_CELL,
                     body="Cedar is available at the Oregon Human Society. sudo get dog"
                 )
-                open('sent', 'a').close()
+                open('/tmp/sent', 'a').close()
